@@ -118,7 +118,7 @@ The model achieved the following performance on the test dataset:
 ## Acknowledgements
 
 * UTKFace Dataset for labeled face images
-* PyTorch and OpenCV for deep learning and image processing
+* OpenCV for deep learning and image processing
 * Gradio for building the interactive interface
 * DVC for data and model version control
 
