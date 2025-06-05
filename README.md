@@ -24,21 +24,20 @@ Face detection is performed using OpenCV’s Haarcascade classifier.
 ## Project Structure
 
 FACEAGE-AND-GENDER-DETECTION/
-├── pycache/                         # Cached bytecode files
-├── .dvc/                            # DVC configuration and metadata
-├── notebooks/                      # Jupyter notebooks for development
-│   ├── Face and Age Detection.ipynb
-│   └── realdatapreprocess.ipynb
-├── templates/                      # HTML template (optional use)
+├── __pycache__/                  # Cached bytecode files
+├── .dvc/                         # DVC configuration and metadata
+├── notebooks/                   # Jupyter notebooks for development
+├── Face and Age Detection.ipynb
+├── realdatapreprocess.ipynb
+├── templates/                   # HTML template (optional use)
 │   └── index.html
-├── app.py                          # Web interface using Gradio
-├── haarcascade_frontalface_default.xml  # Haarcascade for face detection
-├── requirements.txt                # Required packages
-├── data.dvc                        # DVC-tracked data reference
-├── models.dvc                      # DVC-tracked model reference
-├── .gitignore                      # Git ignore rules
-└── .dvcignore                      # DVC ignore rules
-
+├── app.py                       # Web interface using Gradio
+├── haarcascade_frontalface_default.xml   # Haarcascade for face detection
+├── requirements.txt             # Required packages
+├── data.dvc                     # DVC-tracked data reference
+├── models.dvc                   # DVC-tracked model reference
+├── .gitignore                   # Git ignore rules
+└── .dvcignore                   # DVC ignore rules
 
 ## Model Architecture
 
