@@ -1,0 +1,306 @@
+<html class="scroll-smooth" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   FaceAging Detection
+  </title>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+   // Enable dark mode class strategy and custom colors
+   tailwind.config = {
+     darkMode: 'class',
+     theme: {
+       extend: {
+         colors: {
+           primary: {
+             light: '#10b981', // emerald-500
+             DEFAULT: '#059669', // emerald-600
+             dark: '#047857', // emerald-700
+           },
+           backgroundLight: '#f4f7fa',
+           backgroundDark: '#1e293b', // slate-800
+           accentDark: '#fbbf24', // amber-400 for highlights in dark mode
+         },
+         fontFamily: {
+           // Use 'Poppins' for a modern, clean look
+           poppins: ['Poppins', 'sans-serif'],
+         },
+       },
+     },
+   }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Poppins', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="flex flex-col min-h-screen bg-backgroundLight text-gray-900 dark:bg-backgroundDark dark:text-white transition-colors duration-500">
+  <!-- Header with Navbar -->
+  <header class="bg-white dark:bg-slate-900 shadow-md sticky top-0 z-50 transition-colors duration-500">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+     <a class="flex items-center space-x-3" href="#home">
+      <!-- Creative SVG Logo -->
+      <svg aria-hidden="true" class="w-10 h-10 text-primary-DEFAULT dark:text-primary-light" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false">
+       <title>Creative logo combining a stylized face and gender symbols in emerald green</title>
+       <circle cx="32" cy="20" r="12" />
+       <path d="M20 44c0-6 24-6 24 0v8H20v-8z" />
+       <path d="M44 12l8-8" />
+       <path d="M52 12v-8h-8" />
+       <circle cx="52" cy="52" r="8" />
+       <line x1="52" x2="52" y1="44" y2="60" />
+       <line x1="44" x2="60" y1="52" y2="52" />
+      </svg>
+      <span class="text-2xl font-semibold text-primary-DEFAULT dark:text-primary-light select-none tracking-wide">
+       FaceAging Detection
+      </span>
+     </a>
+     <nav class="hidden md:flex space-x-8 font-medium text-gray-700 dark:text-white">
+      <a class="flex items-center gap-1 hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#home">
+       <i class="fas fa-home">
+       </i>
+       Home
+      </a>
+      <a class="flex items-center gap-1 hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#about">
+       <i class="fas fa-info-circle">
+       </i>
+       About
+      </a>
+      <a class="flex items-center gap-1 hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#services">
+       <i class="fas fa-cogs">
+       </i>
+       Services
+      </a>
+      <a class="flex items-center gap-1 hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#contact">
+       <i class="fas fa-envelope">
+       </i>
+       Contact
+      </a>
+     </nav>
+     <div class="flex items-center space-x-4">
+      <button aria-label="Toggle dark mode" class="text-gray-700 dark:text-white hover:text-primary-DEFAULT dark:hover:text-primary-light focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT dark:focus:ring-primary-light rounded transition" id="theme-toggle" title="Toggle Dark/Light Mode" type="button">
+       <i class="fas fa-moon fa-lg" id="theme-toggle-icon">
+       </i>
+      </button>
+      <div class="md:hidden">
+       <button aria-label="Toggle menu" class="text-gray-700 dark:text-white hover:text-primary-DEFAULT dark:hover:text-primary-light focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT dark:focus:ring-primary-light rounded transition" id="mobile-menu-button" type="button">
+        <i class="fas fa-bars fa-lg">
+        </i>
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- Mobile menu -->
+   <nav class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-gray-700" id="mobile-menu">
+    <a class="flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-white hover:bg-emerald-50 dark:hover:bg-emerald-900 hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#home">
+     <i class="fas fa-home">
+     </i>
+     Home
+    </a>
+    <a class="flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-white hover:bg-emerald-50 dark:hover:bg-emerald-900 hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#about">
+     <i class="fas fa-info-circle">
+     </i>
+     About
+    </a>
+    <a class="flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-white hover:bg-emerald-50 dark:hover:bg-emerald-900 hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#services">
+     <i class="fas fa-cogs">
+     </i>
+     Services
+    </a>
+    <a class="flex items-center gap-2 px-4 py-3 text-gray-700 dark:text-white hover:bg-emerald-50 dark:hover:bg-emerald-900 hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#contact">
+     <i class="fas fa-envelope">
+     </i>
+     Contact
+    </a>
+   </nav>
+  </header>
+  <!-- Main content -->
+  <main class="flex-grow flex flex-col items-center px-4 py-12 sm:py-16 max-w-4xl mx-auto w-full space-y-20">
+   <!-- Home Section -->
+   <section id="home" class="w-full flex flex-col items-center">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-primary-DEFAULT dark:text-primary-light mb-10 select-none flex items-center justify-center gap-3">
+     <i class="fas fa-user-check text-primary-DEFAULT dark:text-accentDark text-4xl sm:text-5xl">
+     </i>
+     <span>
+      FaceAging Detection
+     </span>
+    </h1>
+    <form class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col gap-6 transition-colors duration-500" enctype="multipart/form-data" method="POST">
+     <label class="block text-gray-700 dark:text-white font-semibold mb-2" for="image-upload">
+      <i class="fas fa-upload mr-2">
+      </i>
+      Upload an image
+     </label>
+     <input accept="image/*" class="block w-full text-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer bg-white dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT dark:focus:ring-primary-light dark:focus:border-primary-light transition" id="image-upload" name="image" required="" type="file"/>
+     <button class="bg-primary-DEFAULT hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary-DEFAULT transition text-white font-semibold py-3 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT dark:focus:ring-primary-light flex items-center justify-center gap-2" type="submit">
+      <i class="fas fa-paper-plane">
+      </i>
+      Upload &amp; Predict
+     </button>
+    </form>
+    {% if error %}
+    <p class="mt-6 text-red-600 font-semibold text-center dark:text-red-400">
+     {{ error }}
+    </p>
+    {% endif %}
+
+         {% if filename %}
+    <div class="result mt-10 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8 w-full max-w-md text-center transition-colors duration-500">
+     <h2 class="text-2xl font-bold text-primary-DEFAULT dark:text-primary-light mb-6 flex items-center justify-center gap-2">
+      <i class="fas fa-chart-line">
+      </i>
+      Prediction Results
+     </h2>
+     <img alt="Uploaded face image for age and gender detection" class="mx-auto rounded-lg max-w-full max-h-72 mb-6 object-contain" src="{{ url_for('static', filename='uploads/' + filename) }}"/>
+     <p class="text-lg font-semibold text-gray-800 dark:text-white mb-2 flex items-center justify-center gap-2">
+      <i class="fas fa-user">
+      </i>
+      Age:
+      <span class="text-primary-DEFAULT dark:text-primary-light">
+       {{ age }} years
+      </span>
+     </p>
+     <p class="text-lg font-semibold text-gray-800 dark:text-white flex items-center justify-center gap-2">
+      <i class="fas fa-venus-mars">
+      </i>
+      Gender:
+      <span class="text-primary-DEFAULT dark:text-primary-light">
+       {{ gender }}
+      </span>
+     </p>
+    </div>
+    {% endif %}
+   </section>
+   <!-- About Section -->
+   <section id="about" class="w-full max-w-4xl px-4 sm:px-0 scroll-mt-20">
+    <h2 class="text-3xl font-bold text-primary-DEFAULT dark:text-primary-light mb-6 flex items-center gap-3">
+     <i class="fas fa-info-circle text-primary-DEFAULT dark:text-accentDark text-3xl">
+     </i>
+     About FaceAging Detection
+    </h2>
+    <p class="text-gray-700 dark:text-white leading-relaxed text-lg">
+     FaceAging Detection is an advanced AI-powered web application that accurately predicts the age and gender of individuals from uploaded images. Utilizing state-of-the-art machine learning models, it provides quick and reliable results to help users gain insights into facial characteristics.
+    </p>
+   </section>
+   <!-- Services Section -->
+   <section id="services" class="w-full max-w-4xl px-4 sm:px-0 scroll-mt-20">
+    <h2 class="text-3xl font-bold text-primary-DEFAULT dark:text-primary-light mb-6 flex items-center gap-3">
+     <i class="fas fa-cogs text-primary-DEFAULT dark:text-accentDark text-3xl">
+     </i>
+     Our Services
+    </h2>
+    <ul class="space-y-4 text-gray-700 dark:text-white text-lg list-disc list-inside leading-relaxed">
+     <li>
+      <strong>Age Prediction:</strong> Accurately estimate the age of a person from their facial image.
+     </li>
+     <li>
+      <strong>Gender Detection:</strong> Identify the gender with high confidence using AI models.
+     </li>
+     <li>
+      <strong>Fast &amp; Secure:</strong> Upload images securely with quick processing times.
+     </li>
+     <li>
+      <strong>User-Friendly Interface:</strong> Simple and intuitive design for all users.
+     </li>
+    </ul>
+   </section>
+   <!-- Contact Section -->
+   <section id="contact" class="w-full max-w-4xl px-4 sm:px-0 scroll-mt-20">
+    <h2 class="text-3xl font-bold text-primary-DEFAULT dark:text-primary-light mb-6 flex items-center gap-3">
+     <i class="fas fa-envelope text-primary-DEFAULT dark:text-accentDark text-3xl">
+     </i>
+     Contact Us
+    </h2>
+    <form class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col gap-6 transition-colors duration-500" method="POST" action="#contact">
+     <label class="block text-gray-700 dark:text-white font-semibold" for="name">
+      Name
+     </label>
+     <input class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-700 text-gray-700 dark:text-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT dark:focus:ring-primary-light transition" id="name" name="name" placeholder="Your name" required="" type="text"/>
+     <label class="block text-gray-700 dark:text-white font-semibold" for="email">
+      Email
+     </label>
+     <input class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-700 text-gray-700 dark:text-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT dark:focus:ring-primary-light transition" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+     <label class="block text-gray-700 dark:text-white font-semibold" for="message">
+      Message
+     </label>
+     <textarea class="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-700 text-gray-700 dark:text-white px-4 py-2 resize-y focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT dark:focus:ring-primary-light transition" id="message" name="message" placeholder="Your message" required="" rows="4"></textarea>
+     <button class="bg-primary-DEFAULT hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary-DEFAULT transition text-white font-semibold py-3 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT dark:focus:ring-primary-light flex items-center justify-center gap-2" type="submit">
+      <i class="fas fa-paper-plane">
+      </i>
+      Send Message
+     </button>
+    </form>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-gray-700 mt-16 transition-colors duration-500">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center text-gray-600 dark:text-gray-400 text-sm">
+    <p>
+     © 2024 FaceAging Detection. All rights reserved.
+    </p>
+    <div class="flex space-x-6 mt-4 md:mt-0">
+     <a aria-label="Facebook" class="hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#">
+      <i class="fab fa-facebook-f fa-lg">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#">
+      <i class="fab fa-twitter fa-lg">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#">
+      <i class="fab fa-instagram fa-lg">
+      </i>
+     </a>
+     <a aria-label="LinkedIn" class="hover:text-primary-DEFAULT dark:hover:text-primary-light transition" href="#">
+      <i class="fab fa-linkedin-in fa-lg">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Dark mode toggle with icon switch and localStorage persistence
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const htmlEl = document.documentElement;
+
+        // Initialize theme on page load
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlEl.classList.add('dark');
+            themeToggleIcon.classList.remove('fa-moon');
+            themeToggleIcon.classList.add('fa-sun');
+        } else {
+            htmlEl.classList.remove('dark');
+            themeToggleIcon.classList.remove('fa-sun');
+            themeToggleIcon.classList.add('fa-moon');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlEl.classList.toggle('dark');
+            if (htmlEl.classList.contains('dark')) {
+                themeToggleIcon.classList.remove('fa-moon');
+                themeToggleIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggleIcon.classList.remove('fa-sun');
+                themeToggleIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+  </script>
+ </body>
+</html>
