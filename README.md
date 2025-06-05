@@ -1,7 +1,6 @@
 
 
-```markdown
-# Face Age and Gender Detection Using Deep Learning
+# 🌟 FACE AGE AND GENDER DETECTION USING DEEP LEARNING
 
 This project implements a deep learning-based system for predicting age and gender from facial images. Built using PyTorch, OpenCV, and Gradio, it supports both web-based and command-line interfaces. The project also integrates DVC for dataset and model version control.
 
@@ -9,41 +8,37 @@ This project implements a deep learning-based system for predicting age and gend
 
 The system is trained on real-world datasets annotated with age and gender labels. It uses a convolutional neural network (CNN) architecture with dual heads:
 
-- A regression head for age prediction
-- A classification head for gender prediction
+* A regression head for age prediction  
+* A classification head for gender prediction
 
 Face detection is performed using OpenCV’s Haarcascade classifier.
 
 ## Features
 
-- Predicts age (as a numerical value) and gender (male/female)
-- Real-time face detection using Haarcascade
-- Preprocessing including resizing and normalization
-- Gradio-based web interface for interactive use
-- Jupyter notebooks for data preprocessing and experimentation
-- Version control for data and models using DVC
-
+* Predicts age (as a numerical value) and gender (male/female)  
+* Real-time face detection using Haarcascade  
+* Preprocessing including resizing and normalization  
+* Gradio-based web interface for interactive use  
+* Jupyter notebooks for data preprocessing and experimentation  
+* Version control for data and models using DVC  
 ## Project Structure
 
-```
-
 FACEAGE-AND-GENDER-DETECTION/
-├── **pycache**/                      # Cached bytecode files
-├── .dvc/                             # DVC configuration and metadata
-├── notebooks/                        # Jupyter notebooks for development
+├── pycache/                         # Cached bytecode files
+├── .dvc/                            # DVC configuration and metadata
+├── notebooks/                      # Jupyter notebooks for development
 │   ├── Face and Age Detection.ipynb
 │   └── realdatapreprocess.ipynb
-├── templates/
-│   └── index.html                    # HTML template (optional use)
-├── app.py                            # Web interface using Gradio
-├── haarcascade\_frontalface\_default.xml  # Haarcascade for face detection
-├── requirements.txt                  # List of required packages
-├── data.dvc                          # DVC-tracked data reference
-├── models.dvc                        # DVC-tracked model reference
-├── .gitignore                        # Git ignore rules
-├── .dvcignore                        # DVC ignore rules
+├── templates/                      # HTML template (optional use)
+│   └── index.html
+├── app.py                          # Web interface using Gradio
+├── haarcascade_frontalface_default.xml  # Haarcascade for face detection
+├── requirements.txt                # Required packages
+├── data.dvc                        # DVC-tracked data reference
+├── models.dvc                      # DVC-tracked model reference
+├── .gitignore                      # Git ignore rules
+└── .dvcignore                      # DVC ignore rules
 
-````
 
 ## Model Architecture
 
