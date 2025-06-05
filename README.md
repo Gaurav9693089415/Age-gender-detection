@@ -1,6 +1,6 @@
 
 
-# 🌟 FACE AGE AND GENDER DETECTION USING DEEP LEARNING
+# 🌟 AGE AND GENDER DETECTION 
 
 This project implements a deep learning-based system for predicting age and gender from facial images. Built using PyTorch, OpenCV, and Gradio, it supports both web-based and command-line interfaces. The project also integrates DVC for dataset and model version control.
 
