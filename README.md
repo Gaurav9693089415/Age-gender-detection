@@ -1,7 +1,6 @@
 
 
-# 🌟 AGE AND GENDER DETECTION 
-
+# 🌟 Gender and Age Detection in Python with OpenCV & PyTorch
 This project implements a deep learning-based system for predicting age and gender from facial images. Built using PyTorch, OpenCV, and Gradio, it supports both web-based and command-line interfaces. The project also integrates DVC for dataset and model version control.
 
 ## Overview
