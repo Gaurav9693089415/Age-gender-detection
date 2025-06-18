@@ -22,7 +22,7 @@ Face detection is performed using OpenCV’s Haarcascade classifier.
 * Version control for data and models using DVC  
 ## Project Structure
 
-FACEAGE-AND-GENDER-DETECTION/
+
 FACEAGE-AND-GENDER-DETECTION/
 * pycache/ — Cached bytecode files
 * .dvc/ — DVC configuration and metadata
